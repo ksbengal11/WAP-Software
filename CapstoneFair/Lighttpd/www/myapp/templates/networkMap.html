@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> WAP Project Website </title>
+    <meta charset="utf-8">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css"
+      href="/myapp/static/style.css" media="screen">
+
+  </head>
+  <body onload="JavaScript:AutoRefresh(5000);">
+    <div id="wrap">
+
+      <div id="header">
+        <h1> Open Source WAP - Project Website </h1>
+      </div>
+
+      <div id="menu">
+        <ul>
+          <li><a href = "/myapp/test.py/">Home</a></li>
+          <li><a href = "/myapp/templates/networkMap.html">Network Map</a></li>
+          <li><a href = "#">Project Documentation</a></li>
+          <li><a href = "#">About Us</a></li>
+        </ul>
+      </div>
+
+      <div id="Description">
+        <h2>Global Network Map </h2>
+        <p> Batadv-vis is used to visualize our batman-adv mesh network. It
+          reads the neighbor information and local client table and distributes
+          this informatoin via alfred in the network. By gathering this local
+          information, any vis node can get the whole picture of the network
+          and the link quality between devices.
+        </p>
+        <center><img src ="Test.png" id="map" alt="global network map"></center>
+        <p><strong>Note:</strong> the link quality is inversely proportional
+          to the number displayed.
+        </p>
+        <p><strong>To Do: </strong></p>
+        <ul>
+          <li>Don't refresh the entire page to update the image.</li>
+          <li>Write a script that periodically stores batadv-vis output in a
+              dot file.</li>
+          <li>Using graphviz convert the dot file output into png and overwrite
+              "Test.png"</li>
+        </ul>
+        <p> Deadline: March 10th </p>
+
+        </ul>
+      </div>
+    </body>
+
+</html>

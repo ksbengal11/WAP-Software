@@ -1,0 +1,14 @@
+# USB Booting
+Commands:
+``` sh
+usb start 
+fatload usb 0:1 2000000 pason-image-wap-t1023rdb.ext2.gz.u-boot 
+fatload usb 0:1 1000000 uImage-t1023rdb.bin 
+fatload usb 0:1 c00000 uImage-t1023rdb.dtb 
+bootm 1000000 2000000 c00000 
+ 
+usb start && 
+fatload usb 0:1 $ramdiskaddr $ramdiskfile  && fatload usb 0:1 $uImage-t1023rdb.bin 
+fatload usb 0:1 c00000 uImage-t1023rdb.dtb 
+bootm 1000000 2000000 c00000
+```

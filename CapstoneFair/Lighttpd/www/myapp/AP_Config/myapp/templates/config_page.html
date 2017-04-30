@@ -1,0 +1,48 @@
+<!doctype html>
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+<script type="text/javascript">
+  var $SCRIPT_ROOT = {{ request.script_root|tojson|safe }};
+</script>
+
+<script type="text/javascript">
+	$(function(){
+		var load_page = function(e){
+			$.getJSON($SCRIPT_ROOT + '/_first_run', function(data){
+				$('#current_ssid').text(data.current_ssid);
+				$('#current_channel').text(data.current_channel);	
+				$('#current_meshid').text(data.current_meshid);
+				});
+				return false;
+			};
+			onload=load_page;
+	});
+
+	$(function() {
+		var submit_changes = function(e){
+			$.getJSON($SCRIPT_ROOT + '/_config', {
+				new_ssid: $('input[name="new_ssid"]').val(),
+				new_chan: $('input[name="new_chan"]').val(),
+				new_meshid: $('input[name="new_meshid"]').val()
+
+			},function(data){
+				$('#current_ssid').text(data.current_ssid);
+				$('#current_channel').text(data.current_channel);	
+				$('#current_meshid').text(data.current_meshid);
+		});
+		return false;
+	};
+  $('a#change').bind('click', submit_changes);
+});
+</script>
+
+<h1>AP Configuration</h1>
+<p>
+<p>Current SSID: <span id="current_ssid">?</span> <br/>
+	New SSID: <input type=text size=20 name=new_ssid> <br/><br/>
+	Current Channel: <span id="current_channel">?</span><br/>
+	New Channel: <input type=text size=5 name=new_chan> <br/><br/>
+	Current MeshID: <span id="current_meshid">?</span><br/>
+	New MeshID: <input type=text size=20 name=new_meshid> <br/><br/>
+<p><a href=# id="change">Change Configuration</a>
+
+

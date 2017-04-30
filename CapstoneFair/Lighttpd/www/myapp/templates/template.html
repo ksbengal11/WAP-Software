@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> WAP Project Website </title>
+    <meta charset="utf-8">
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css"
+      href="/myapp/static/style.css" media="screen">
+
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <script src="/myapp/templates/networkChart.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        setInterval(function(){
+          $("#auto").load("/myapp/test.py/ #auto")
+        },5000);
+      });
+    </script>
+
+  </head>
+  <body>
+    <div id="wrap">
+
+      <div id="header">
+        <h1> Open Source WAP - Project Website </h1>
+      </div>
+
+      <div id="menu">
+        <ul>
+          <li><a href = "/myapp/templates/networkMap.html">Network Map</a></li>
+          <li><a href = "#">Project Documentation</a></li>
+          <li><a href = "#">About Us</a></li>
+        </ul>
+      </div>
+
+      <div id="Description">
+        <br />
+        <h4><center>Network Diagnostic Information</center> </h4>
+      </div>
+
+      <!-- RSSI Chart -->
+      <div id="container" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+      <!-- Network Table -->
+      <div id="auto">
+        <table class="GeneratedTable">
+          <thead>
+            <tr>
+              <th>Mac Address</th>
+              <th>Mesh Id</th>
+              <th>Encryption</th>
+              <th>Signal Level (dm)</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>Address 1</td>
+              <td>Pason-ap</td>
+              <td>WEP</td>
+              <td id="WAP1">{{result['dev_addr1']}}</td>
+            </tr>
+            <tr>
+              <td>Address 2</td>
+              <td>Pason-ap</td>
+              <td>WEP</td>
+              <td id="WAP2">{{result['dev_addr2']}}</td>
+            </tr>
+            <tr>
+              <td>Address 3</td>
+              <td>Pason-ap</td>
+              <td>WEP</td>
+              <td id="WAP3">{{result['dev_addr3']}}</td>
+            </tr>
+            <tr>
+              <td>Address 4</td>
+              <td>Pason-ap</td>
+              <td>WEP</td>
+              <td id="WAP4">{{result['dev_addr4']}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+
+      </div>
+
+    </div>
+
+  </body>
+
+</html>
